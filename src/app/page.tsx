@@ -30,10 +30,10 @@ export default function Home() {
       setResultId(ranked[0]);
       setSubResultId(ranked[1]);
       setTotalScore(completedTotal);
-      trackEvent("complete_diagnosis", {
-        result_type: ranked[0],
-        sub_type: ranked[1],
-        total_score: completedTotal,
+      trackEvent("診断完了", {
+        メイン診断タイプ: results[ranked[0]].name,
+        サブ診断タイプ: results[ranked[1]].name,
+        合計点: completedTotal,
       });
       setScreen("result");
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -63,7 +63,7 @@ export default function Home() {
 
 function Intro({ start }: { start: () => void }) {
   const startDiagnosis = () => {
-    trackEvent("start_diagnosis");
+    trackEvent("診断開始");
     start();
   };
 
@@ -108,9 +108,9 @@ function Result({ id, subId, total, restart }: { id: TypeId; subId: TypeId; tota
       navigating = true;
       window.location.href = amazonUrl;
     };
-    trackEvent("click_amazon", {
-      result_type: id,
-      risk_rank: risk.rank,
+    trackEvent("Amazonリンククリック", {
+      診断タイプ: result.name,
+      危険度ランク: `${risk.rank}ランク`,
       event_callback: navigate,
       event_timeout: 800,
     });

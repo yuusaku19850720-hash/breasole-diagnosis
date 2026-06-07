@@ -44,9 +44,9 @@ GA4では以下のイベントを送信します。
 
 | イベント名 | 発火タイミング |
 |---|---|
-| `start_diagnosis` | 診断開始ボタンのクリック時 |
-| `complete_diagnosis` | 全13問の回答完了時 |
-| `click_amazon` | Amazonボタンのクリック時 |
+| `診断開始` | 診断開始ボタンのクリック時 |
+| `診断完了` | 全13問の回答完了時 |
+| `Amazonリンククリック` | Amazonボタンのクリック時 |
 
 ## 編集箇所
 
@@ -122,6 +122,6 @@ npx vercel --prod
 
 1. 発行されたVercel URLでiPhone実機確認
 2. GA4リアルタイム画面でアクセス確認
-3. `start_diagnosis`、`complete_diagnosis`、`click_amazon` の受信確認
+3. `診断開始`、`診断完了`、`Amazonリンククリック` の受信確認
 4. Amazonリンクの遷移確認
 5. 必要に応じて独自ドメインをVercelへ設定

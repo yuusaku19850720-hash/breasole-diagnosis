@@ -4,7 +4,7 @@ declare global {
   }
 }
 
-export type AnalyticsEvent = "start_diagnosis" | "complete_diagnosis" | "click_amazon";
+export type AnalyticsEvent = "診断開始" | "診断完了" | "Amazonリンククリック";
 
 export function trackEvent(event: AnalyticsEvent, parameters?: Record<string, unknown>) {
   if (typeof window === "undefined" || !window.gtag) return;
